@@ -122,25 +122,28 @@ def split_pdf_by_section_ranges(pdf_path, output_folder, start_texts_with_multip
     pdf_document.close()
 
 # Usage
-pdf_path = 'ocr2.pdf'
+pdf_path = 'testocr.pdf'
 output_folder = 'output'
 
 # Define start texts with corresponding end texts
-start_texts_with_multiple_ends = [
-    [
-        ["Schedule K-1 "],
-        ["For Paperwork Reduction Act Notice, see the Instructions for Form 1065."]
-    ],
-    [
-        ["Schedule K-3 "],
-        ["For Paperwork Reduction Act Notice, see the Instructions for Form 1065."]
-    ],
-    [
-        ["Check box(es) for additional specified attachments. See instructions."],
-        ["13. Other international items"]
-    ],
-    [
-        ["Foreign Tax Credit Limitation","Foreign Tax Credit Limitation (continued)"],
+_0 = [
+        (["Schedule K-1 "],
+        ["For Paperwork Reduction Act Notice, see the Instructions for Form 1065."])
+    ]
+
+_1 =  [
+        (["Credits, etc.—International"],
+        ["For Paperwork Reduction Act Notice, see the Instructions for Form 1065."])
+    ]
+    
+
+_2 = [
+        (["Check box(es) for additional specified attachments. See instructions."],
+        ["13. Other international items"])
+    ]
+
+_3 = [
+        (["Foreign Tax Credit Limitation","Foreign Tax Credit Limitation (continued)"],
         [
             "Other Information for Preparation of Form 1116 or 1118",
             "Information on Partner’s Section 250 Deduction With Respect to Foreign-Derived Intangible Income (FDI)",
@@ -153,10 +156,11 @@ start_texts_with_multiple_ends = [
             "Section 871(m) Covered Partnerships",
             "Reserved for Future Use",
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ],
-    [
-        ["Other Information for Preparation of Form 1116 or 1118"],
+        ])
+    ]
+
+_4 = [
+        (["Other Information for Preparation of Form 1116 or 1118"],
         [
             "Information on Partner’s Section 250 Deduction With Respect to Foreign-Derived Intangible Income (FDI)",
             "Information on Partner’s Section 951(a)(1) and Section 951A Inclusions",
@@ -168,10 +172,11 @@ start_texts_with_multiple_ends = [
             "Section 871(m) Covered Partnerships",
             "Reserved for Future Use",
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ],
-    [
-        ["Information on Partner’s Section 250 Deduction With Respect to Foreign-Derived Intangible Income (FDI) "],
+        ])
+    ]
+
+_5 = [
+        (["Information on Partner’s Section 250 Deduction With Respect to Foreign-Derived Intangible Income (FDI) "],
         [
             "Distributions From Foreign Corporations to Partnership",
             "Information on Partner’s Section 951(a)(1) and Section 951A Inclusions",
@@ -182,10 +187,11 @@ start_texts_with_multiple_ends = [
             "Section 871(m) Covered Partnerships",
             "Reserved for Future Use",
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ],
-    [
-        ["Distributions From Foreign Corporations to Partnership"],
+        ])
+    ]
+
+_6 = [
+        (["Distributions From Foreign Corporations to Partnership"],
         [
             "Information on Partner’s Section 951(a)(1) and Section 951A Inclusions",
             "Information Regarding Passive Foreign Investment Companies (PFICs)",
@@ -195,10 +201,11 @@ start_texts_with_multiple_ends = [
             "Section 871(m) Covered Partnerships",
             "Reserved for Future Use",
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ],
-    [
-        ["Information on Partner’s Section 951(a)(1) and Section 951A Inclusions"],
+        ])
+    ]
+
+_7 = [
+        (["Information on Partner’s Section 951(a)(1) and Section 951A Inclusions"],
         [
             "Information Regarding Passive Foreign Investment Companies (PFICs)",
             "Partner’s Interest in Foreign Corporation Income (Section 960)",
@@ -207,10 +214,11 @@ start_texts_with_multiple_ends = [
             "Section 871(m) Covered Partnerships",
             "Reserved for Future Use",
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ],
-    [
-        ["Information Regarding Passive Foreign Investment Companies (PFICs)"],
+        ])
+    ]
+
+_8 = [
+        (["Information Regarding Passive Foreign Investment Companies (PFICs)"],
         [
             "Partner’s Interest in Foreign Corporation Income (Section 960)",
             "Partner’s Information for Base Erosion and Anti-Abuse Tax (Section 59A)",
@@ -218,36 +226,82 @@ start_texts_with_multiple_ends = [
             "Section 871(m) Covered Partnerships",
             "Reserved for Future Use",
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ],
-    [
-        ["Partner’s Interest in Foreign Corporation Income (Section 960)", "Partner’s Interest in Foreign Corporation Income (Section 960) (continued)" ],
+        ])
+    ]
+
+_9 = [
+        (["Partner’s Interest in Foreign Corporation Income (Section 960)", "Partner’s Interest in Foreign Corporation Income (Section 960) (continued)" ],
         [
             "Partner’s Information for Base Erosion and Anti-Abuse Tax (Section 59A)",
             "Foreign Partner’s Character and Source of Income and Deductions",
             "Section 871(m) Covered Partnerships",
             "Reserved for Future Use",
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ],
-    [ 
-        ["Partner’s Information for Base Erosion and Anti-Abuse Tax (Section 59A) "],
+        ])
+    ]
+
+_10 = [ 
+        (["Partner’s Information for Base Erosion and Anti-Abuse Tax (Section 59A) "],
         [
             "Foreign Partner’s Character and Source of Income and Deductions ",
             "Section 871(m) Covered Partnerships",
             "Reserved for Future Use",
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ],
-    [
-        ["Foreign Partner’s Character and Source of Income and Deductions "],
+        ])
+    ]
+
+_11 = [(["Foreign Partner’s Character and Source of Income and Deductions "],
         [
             "Schedule K-3 (Form 1065) ",
             "Section 871(m) Covered Partnerships",
             "Reserved for Future Use",
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ],
+        ])
+    ]
+
+_13 =   [
+        (["Foreign Partner’s Distributive Share of Deemed Sale Items on Transfer of Partnership Interest"],
+        [
+            "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
+        ])
+    ]
+
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/0", _0)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/1", _1)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/2", _2)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/3", _3)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/4", _4)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/5", _5)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/6", _6)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/7", _7)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/8", _8)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/9", _9)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/10", _10)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/11", _11)
+
+split_pdf_by_section_ranges(pdf_path, output_folder +"/13", _13)
+"""
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    [
+        ,
     [
         ["Section 871(m) Covered Partnerships"],
         [
@@ -255,13 +309,4 @@ start_texts_with_multiple_ends = [
             "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
         ]
     ],
-    [
-        ["Foreign Partner’s Distributive Share of Deemed Sale Items on Transfer of Partnership Interest"],
-        [
-            "Gain that would be recognized under section 897(g) on the deemed sale of section 1(h)(6) unrecaptured section 1250 gain assets."
-        ]
-    ]
-]
-
-
-split_pdf_by_section_ranges(pdf_path, output_folder, start_texts_with_multiple_ends)
+  """
