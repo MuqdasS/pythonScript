@@ -160,7 +160,7 @@ def crop_sections_from_original_pdf(original_pdf_path, sections, output_folder):
 scanned_pdf_path = "Client2.pdf"  # Path to the original scanned PDF
 ocr_pdf_path = "ocr2.pdf"  # Specify a valid path for the OCR PDF
 output_text_path = "ocr_output2.txt"  # Path to save the extracted OCR text
-output_folder = "path/to"  # Folder where cropped sections will be saved
+output_folder = "output"  # Folder where cropped sections will be saved
 
 # Define start and end text
 start_text = "Partner’s Share of Partnership’s Other Current Year International Information"  # Example start text

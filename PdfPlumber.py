@@ -123,7 +123,7 @@ def split_pdf_by_section_ranges(pdf_path, output_folder, start_texts_with_multip
 
 # Usage
 pdf_path = 'ocr2.pdf'
-output_folder = 'path/folder'
+output_folder = 'output'
 
 # Define start texts with corresponding end texts
 start_texts_with_multiple_ends = [
